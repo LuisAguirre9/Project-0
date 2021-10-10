@@ -1,6 +1,7 @@
 package com.revature.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -29,7 +30,7 @@ public class UserDaoDatabase implements UserDataAccessObject{
 		ResultSet rs = s.executeQuery(selectAllSQL);	
 		
 		while(rs.next()) {
-			userList.add(new User(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDouble(4), rs.getString(5)));
+			userList.add(new User(rs.getString(1), rs.getString(2),rs.getDouble(3), rs.getString(4)));
 		}
 		return userList;
 		}
@@ -42,14 +43,45 @@ public class UserDaoDatabase implements UserDataAccessObject{
 
 	@Override
 	public User getUserByUsername(String username) {
-		// TODO Auto-generated method stub
-		return null;
+User user = new User();
+		
+		try {
+			Connection c = cUtil.getConnection();
+			
+			String sql = "SELECT * FROM users WHERE users.username = '" + username + "'";
+			
+			Statement s = c.createStatement();
+			ResultSet rs = s.executeQuery(sql);
+			
+			while(rs.next()) {
+				user.setUsername(rs.getString(1));
+				user.setPassword(rs.getString(2));
+				user.setAccountBalance(rs.getDouble(3));
+				user.setPersonalInformation(rs.getString(4));
+			}
+				return user;
+			} 
+			catch(SQLException e) {
+				e.printStackTrace();
+			}
+				return null;
 	}
 
 	@Override
 	public void createUser(User u) throws SQLException {
-		// TODO Auto-generated method stub
+		Connection c = cUtil.getConnection();
+		//Error NOTE: I have to start a connection first
+		String userdata = "INSERT INTO users(username, password,accountbalance,personalinformation) values"
+				+"(?,?,?,?)";
+		//Question marks align to my INSERT INTO, acts as a placeholder?
+		PreparedStatement ps = c.prepareStatement(userdata);
 		
+		//This should return the data I send to the DB
+		ps.setString(1, u.getUsername());
+		ps.setString(2, u.getPassword());
+		ps.setDouble(3, u.getAccountBalance());
+		ps.setString(4, u.getPersonalInformation());
+		ps.execute();
 	}
 
 	@Override

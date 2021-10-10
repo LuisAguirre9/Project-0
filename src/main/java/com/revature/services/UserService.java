@@ -16,9 +16,9 @@ public class UserService {
 		this.uDAO = u;
 	}
 		
-		public User signUp(String username, String password, String accountInfo, Double accountBalance, String personalInformation) throws UsernameExistsException{
+		public User signUp(String username, String password, Double accountBalance, String personalInformation) throws UsernameExistsException{
 			
-			User u = new User(username, password, accountInfo, accountBalance, personalInformation);
+			User u = new User(username, password, accountBalance, personalInformation);
 			
 			try {
 				uDAO.createUser(u);
@@ -26,6 +26,7 @@ public class UserService {
 			} 
 			catch(SQLException e) {
 				Logging.logger.warn("Username already exists");
+				e.printStackTrace();
 				throw new UsernameExistsException();
 			}
 			return(u);

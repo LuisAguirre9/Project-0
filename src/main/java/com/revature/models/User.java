@@ -8,7 +8,6 @@ public class User implements Serializable{
 
 	private String username;
 	private String password;
-	private String accountInfo;
 	private Double accountBalance;
 	private String personalInformation;
 	
@@ -16,10 +15,9 @@ public class User implements Serializable{
 		super();
 	}
 	
-	public User(String username, String password, String accountInfo, Double accountBalance, String personalInformation) {
+	public User(String username, String password, Double accountBalance, String personalInformation) {
 		this.username = username;
 		this.password = password;
-		this.accountInfo = accountInfo;
 		this.accountBalance = accountBalance;
 		this.personalInformation = personalInformation;
 	}
@@ -38,13 +36,6 @@ public class User implements Serializable{
 		this.password = password;
 	}
 	
-	public String getAccountInfo(){
-		return accountInfo;
-	}
-	public void setAccountInfo(String accountInfo) {
-		this.accountInfo = accountInfo;
-	}
-	
 	public Double getAccountBalance(){
 		return accountBalance;
 	}
@@ -61,6 +52,6 @@ public class User implements Serializable{
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password + ", accountInfo="+ accountInfo +", accountBalance= " +accountBalance+ ", personalInformation= "+personalInformation+"]";
+		return "User [username=" + username + ", password=" + password +", accountBalance= " +accountBalance+ ", personalInformation= "+personalInformation+"]";
 	}
 }
