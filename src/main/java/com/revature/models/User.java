@@ -8,20 +8,20 @@ public class User implements Serializable{
 
 	private String username;
 	private String password;
-	private Double accountBalance;
 	private String personalInformation;
+	private Double balance;
 	
-	public User() {
-		super();
-	}
-	
-	public User(String username, String password, Double accountBalance, String personalInformation) {
+	public User(String username, String password, String personalInformation, Double balance) {
 		this.username = username;
 		this.password = password;
-		this.accountBalance = accountBalance;
 		this.personalInformation = personalInformation;
+		this.balance = balance;
 	}
 	
+	public User() {
+	
+	}
+
 	public String getUsername(){
 		return username;
 	}
@@ -36,22 +36,23 @@ public class User implements Serializable{
 		this.password = password;
 	}
 	
-	public Double getAccountBalance(){
-		return accountBalance;
-	}
-	public void setAccountBalance(Double accountBalance) {
-		this.accountBalance = accountBalance;
-	}
-	
 	public String getPersonalInformation(){
 		return personalInformation;
 	}
 	public void setPersonalInformation(String personalInformation) {
 		this.personalInformation = personalInformation;
 	}
+	
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
 
 	@Override
 	public String toString() {
-		return "User [username=" + username + ", password=" + password +", accountBalance= " +accountBalance+ ", personalInformation= "+personalInformation+"]";
+		return "User [username=" + username + ", password=" + password + ", personalInformation= "+personalInformation+", balance= "+balance+"]";
 	}
 }

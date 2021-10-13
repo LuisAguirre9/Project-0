@@ -16,9 +16,9 @@ public class UserService {
 		this.uDAO = u;
 	}
 		
-		public User signUp(String username, String password, Double accountBalance, String personalInformation) throws UsernameExistsException{
+		public User signUp(String username, String password, String personalInformation, Double balance) throws UsernameExistsException{
 			
-			User u = new User(username, password, accountBalance, personalInformation);
+			User u = new User(username, password, personalInformation, balance);
 			
 			try {
 				uDAO.createUser(u);
@@ -48,6 +48,24 @@ public class UserService {
 				Logging.logger.info("User was logged in successfully");
 				return u;
 			}
+		}
+
+		public User withdraw(String username, double amount) {
+			User u = uDAO.getUserByUsername(username);
+			
+			return u;
+		}
+
+		public User deposit(String username, double amount) {
+			User u = uDAO.getUserByUsername(username);
+			
+			return null;
+		}
+
+		public User transfer(String username) {
+			User u = uDAO.getUserByUsername(username);
+			
+			return null;
 		}
 }
 

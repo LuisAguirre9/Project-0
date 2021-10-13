@@ -15,4 +15,11 @@ public interface UserDataAccessObject {
 	void updateUser(User u);
 	
 	void deleteUser(User u);
+	
+	void deposit(User u);
+
+	void withdraw(User u);
+
+	void transfer(User u);
+	
 }

@@ -9,3 +9,10 @@
 2021-10-10 16:01:55 WARN  Logging:28 - Username already exists
 2021-10-10 16:08:16 WARN  Logging:28 - Username already exists
 2021-10-10 16:14:10 WARN  Logging:28 - Username already exists
+2021-10-11 19:26:08 WARN  Logging:29 - Username already exists
+2021-10-11 19:28:53 WARN  Logging:29 - Username already exists
+2021-10-11 19:30:32 WARN  Logging:29 - Username already exists
+2021-10-12 10:12:16 WARN  Logging:28 - Username already exists
+2021-10-12 10:13:13 WARN  Logging:28 - Username already exists
+2021-10-12 18:06:51 WARN  Logging:28 - Username already exists
+2021-10-13 11:38:58 WARN  Logging:28 - Username already exists
